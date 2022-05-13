@@ -15,6 +15,30 @@ exports.Mentor = model(
       type: String,
       required: true,
     },
+    country: {
+      type: String,
+      required: true,
+    },
+    state: {
+      type: String,
+      required: true,
+    },
+    city: {
+      type: String,
+      required: true,
+    },
+    profession: {
+      type: String,
+      required: true,
+    },
+    yearsOfExperience: {
+      type: Number,
+      required: true,
+    },
+    skills: {
+      type: String,
+      required: true,
+    },
     phone: {
       type: String,
       required: true,

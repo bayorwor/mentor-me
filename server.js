@@ -3,6 +3,7 @@ const express = require("express");
 require("colors");
 const app = express();
 const { connectDB } = require("./configs/db");
+const { errorHandler, notFound } = require("./middlewares/error.middleware");
 
 //routes
 const { mentorsRouter } = require("./routes/mentor.routes");
@@ -17,6 +18,9 @@ app.use("/api/v1/users", usersRoute);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
