@@ -8,12 +8,14 @@ const { errorHandler, notFound } = require("./middlewares/error.middleware");
 //routes
 const { mentorsRouter } = require("./routes/mentor.routes");
 const { usersRoute } = require("./routes/user.routes");
+const { bookingRouter } = require("./routes/bookings.routes");
 
 connectDB();
 
 app.use(express.json());
 app.use("/api/v1/mentors", mentorsRouter);
 app.use("/api/v1/users", usersRoute);
+app.use("/api/v1/bookings", bookingRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

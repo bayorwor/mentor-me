@@ -4,7 +4,7 @@ const Book = model(
   "Book",
   new Schema({
     user: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
@@ -21,7 +21,7 @@ const Book = model(
       },
     ],
     total: { type: Number, required: true },
-    status: { type: String, required: true },
+    status: { type: String, required: true, default: "pending" },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   })
