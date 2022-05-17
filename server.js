@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const cors = require("cors");
 require("colors");
 const app = express();
 const { connectDB } = require("./configs/db");
@@ -12,6 +13,7 @@ const { bookingRouter } = require("./routes/bookings.routes");
 
 connectDB();
 
+app.use(cors());
 app.use(express.json());
 app.use("/api/v1/mentors", mentorsRouter);
 app.use("/api/v1/users", usersRoute);
