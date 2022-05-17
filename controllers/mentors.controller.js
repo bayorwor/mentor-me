@@ -125,7 +125,7 @@ exports.createMentorReview = async (req, res) => {
 // @desc Get top rated mentors
 // @access Public
 exports.getTopRatedMentors = async (req, res) => {
-  const mentors = await Mentor.find({}).sort({ rating: -1 });
+  const mentors = await Mentor.find({}).sort({ rating: -1 }).limit(4);
   res.status(200).json({
     success: true,
     count: mentors.length,
