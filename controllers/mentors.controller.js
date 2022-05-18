@@ -102,6 +102,7 @@ exports.createMentorReview = async (req, res) => {
 
     const review = {
       name: req.user.name,
+      profile: req.user.profile,
       rating: Number(rating),
       comment,
       user: req.user._id,
