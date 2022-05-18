@@ -15,7 +15,6 @@ exports.addMentor = async (req, res) => {
   const mentor = await Mentor.create({
     ...req.body,
     user: req.user._id,
-    profile: req.user.profile,
     numReviews: 0,
   });
   res.status(201).json({

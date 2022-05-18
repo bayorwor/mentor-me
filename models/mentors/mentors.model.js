@@ -3,6 +3,7 @@ const { model, Schema } = require("mongoose");
 const reviewSchema = new Schema(
   {
     name: { type: String, required: true },
+    profile: { type: String },
     rating: { type: Number, required: true },
     comment: { type: String, required: true },
     user: {
