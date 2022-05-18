@@ -14,7 +14,12 @@ const { bookingRouter } = require("./routes/bookings.routes");
 
 connectDB();
 
-const io = require("socket.io")(server);
+const io = require("socket.io")(server, {
+  cors: {
+    origin: "*",
+    // methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  },
+});
 
 app.use(cors());
 app.use(express.json());
