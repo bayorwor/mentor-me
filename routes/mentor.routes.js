@@ -13,8 +13,8 @@ const {
 const router = Router();
 
 router.route("/").post(protect, addMentor).get(getAllMentors);
+router.get("/top", getTopRatedMentors);
 router.route("/:id").get(getMentor).patch(protect, updateMentor);
-router.route("/top").get(getTopRatedMentors);
 router.route("/:id/reviews").post(protect, createMentorReview);
 
 exports.mentorsRouter = router;
