@@ -5,24 +5,16 @@ const Booking = require("../models/bookings/book.model");
 // @desc Create a booking
 // @access Public
 exports.createBooking = async (req, res) => {
-  const { bookings, total } = req.body;
+  const { booking } = req.body;
 
-  if (bookings && bookings.length === 0) {
-    return res.status(400).json({
-      success: false,
-      error: "Please select at least one booking",
-    });
-  } else {
-    const booking = await Booking.create({
-      bookings,
-      total,
-      user: req.user._id,
-    });
-    res.status(201).json({
-      success: true,
-      data: booking,
-    });
-  }
+  const book = await Booking.create({
+    booking,
+    user: req.user._id,
+  });
+  res.status(201).json({
+    success: true,
+    data: book,
+  });
 };
 
 // get all bookings
