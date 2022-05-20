@@ -12,7 +12,8 @@ const Book = model(
       booking: {
         name: { type: String, required: true },
         image: { type: String, required: true },
-        time: { type: Date, required: true },
+        time: { type: String, required: true },
+        date: { type: String, required: true },
         mentor: {
           type: Schema.Types.ObjectId,
           required: true,
