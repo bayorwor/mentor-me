@@ -35,7 +35,9 @@ exports.getAllBookings = async (req, res) => {
 // @desc Get my bookings
 // @access Public
 exports.getMyBookings = async (req, res) => {
-  const bookings = await Booking.find({ user: req.user._id });
+  const bookings = await Booking.find({ user: req.user._id }).populate(
+    "booking.mentor"
+  );
   res.status(200).json({
     success: true,
     count: bookings.length,
